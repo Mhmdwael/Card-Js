@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="py-3 vh-100 bg-body-secondary">
+      <div class="container-fluid py-3">
+        <div class="">
+          <label for="productName">Product Name:</label>
+          <input
+            type="text"
+            class="form-control my-2"
+            placeholder="Product Name"
+            id="productName"
+            oninput="productNameVallidation()"
+          />
+          <div class="">
+            <p
+              id="textAlert"
+              class="d-none load bg-danger text-light py-2 px-2 rounded-3"
+            >
+              Please enter a name that starts with a capital letter (A-Z),
+              followed by 4 to 12 lowercase letters (a-z)
+            </p>
+          </div>
+          <label for="productPrice">Product Price</label>
+          <input
+            type="number"
+            class="form-control my-2"
+            placeholder="Product Price"
+            id="productPrice"
+            oninput="productPriceVallidation()"
+          />
+          <div class="">
+            <p
+              id="priceAlert"
+              class="d-none load bg-danger text-light py-2 px-2 rounded-3"
+            >
+              The amount must be a number between 100 and 1,000,000 without any
+              extra symbols or spaces.
+            </p>
+          </div>
+          <label for="productCategory">Product Category:</label>
+          <input
+            type="text"
+            class="form-control my-2"
+            placeholder="Product Category"
+            id="productCategory"
+            oninput="productCategoryVallidation()"
+          />
+          <p
+            id="categoryAlert"
+            class="d-none load bg-danger text-light py-2 px-2 rounded-3"
+          >
+            The input must start with a single uppercase letter, followed by 5
+            to 13 lowercase letters.
+          </p>
+          <label for="productDescription">Product Description:</label>
+          <input
+            type="text"
+            class="form-control my-2"
+            placeholder="Product Description"
+            id="productDescription"
+            oninput="productDescVallidation()"
+          />
+          <p
+            id="descAlert"
+            class="d-none load bg-danger text-light py-2 px-2 rounded-3"
+          >
+            Enter a text containing lowercase and uppercase letters, with a length
+            between 5 and 50 characters.
+          </p>
+        </div>
+        <button
+          type="button"
+          onclick="addProduct()"
+          id="btnAdd"
+          class="w-100 btn border bg-primary text-light"
+        >
+          Add Product
+        </button>
+        <button
+          type="button"
+          onclick="updateProduct()"
+          id="btnUpdate"
+          class="w-100 btn btn-warning d-none"
+        >
+          Update Product
+        </button>
+        <input
+          type="search"
+          id="searchInput"
+          class="form-control w-75 mx-auto mt-3"
+          oninput="searchProduct()"
+          placeholder="search by name"
+        />
+        <table class="table text-center mt-3">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>price</th>
+              <th>category</th>
+              <th>Description</th>
+              <th>update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
